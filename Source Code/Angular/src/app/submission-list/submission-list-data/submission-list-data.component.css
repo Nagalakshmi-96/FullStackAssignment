@@ -1,0 +1,391 @@
+.submissionsMenu
+{
+  font-family: avernirMedium;
+  text-transform: uppercase;
+  font-size: 18px;
+  height: 70px;
+}
+.totalSubmissions
+{
+  width: 150px;
+  float: left;
+  padding: 20px 20px;
+}
+.filtersContainer
+{
+  font-size: 14px;
+  float: right;
+  padding: 20px 20px;
+}
+.displayStyleFlex
+{
+  display: flex;
+}
+.filtersContainer
+{
+  float: right;
+}
+.customCheckBox
+{
+  -webkit-appearance: none;
+	background: url('../../../assets/Images/ic_check_box.svg');
+  background-size: contain;
+  width: 21px;
+  height: 21px;
+  background-repeat: no-repeat;
+}
+.customCheckBox:checked {
+	background: url('/assets/Images/ic_check_box_checked.svg');
+  background-size: contain;
+  width: 21px;
+  height: 21px;
+  background-repeat: no-repeat;
+}
+.dropdownIcon
+{
+  background: url('../../../assets/Images/arrow-down.svg');
+	background-size: contain;
+	width: 25px;
+	height: 25px;
+  margin-top: -4px;
+}
+.dropdownIconInverted
+{
+  background: url('../../../assets/Images/arrow-down.svg');
+	background-size: contain;
+	width: 25px;
+	height: 25px;
+  margin-top: -4px;
+  transform: rotate(180deg);
+}
+.showFilterContainer
+{
+  padding-left: 25px;
+  width: 141px;
+}
+.showFilter
+{
+  width: 92px;
+}
+.clearFilterIcon
+{
+  background: url('../../../assets/Images/Clearfilters.svg');
+	width: 19px;
+	height: 17px;
+	background-repeat: no-repeat;
+  margin: 0px 10px 0px 15px;
+}
+.checkboxValue,.clearFilterContainer,.showFilterContainer
+{
+  margin-top: 6px;
+  color:#3a3c42;
+}
+.assignedToMeCheckBox
+{
+  margin: 0px 10px;
+}
+.dataHeader
+{
+  font-family: avernirMedium;
+  border: 1px solid #fff;
+  border-top: 1px solid #ccc;
+  margin: 0px 0px 0px 20px;
+  padding: 10px 0px;
+  color: #3a3c42;
+}
+.dataHeader:focus
+{
+  outline: none;
+}
+.playerProfile
+{
+  flex-basis: 230px;
+}
+.registrationType
+{
+flex-basis: 200px;
+}
+.registeringClub
+{
+  flex-basis: 200px;
+}
+.sectionStatuses
+{
+flex-basis: 340px;
+}
+.createdDate
+{
+flex-basis: 150px;
+}
+.pagination
+{
+  flex-basis: 150px;
+  position: relative;
+  margin-top: -6px;
+}
+.assignedTo
+{
+  flex-basis: 50px;
+}
+.commentsIcon {
+	background: url('../../../assets/Images/comments_icon.svg');
+	background-size: contain;
+  background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
+  flex-basis: 40px;
+  margin-top: 5px;
+
+}
+.settingsIcon {
+	background: url('/assets/Images/tripple_dot_menu.svg');
+	background-size: contain;
+  background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
+  flex-basis: 40px;
+  margin-top: 5px;
+}
+
+.userAvatar
+{
+  background-image: url('/assets/Images/player-avatar.png');
+  padding: 10px 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 25px;
+}
+.dataHeader
+{
+  font-size: 13px;
+  line-height: 1.5;
+}
+.profileDetails
+{
+  font-size: 13px;
+  margin: 0px 5px;
+  width: 170px;
+}
+.sectionStatusesFirst
+{
+  margin-right: 80px;
+}
+.headerFont
+{
+  font-family: avernirDemi;
+  font-weight: bold;
+  color:#000;
+}
+.userName
+{
+  font-size: 15px;
+  font-family:avernirMedium;
+}
+.userStatus
+{
+  text-transform: uppercase;
+  font-size:12px;
+}
+.userRegistrationID
+{
+  color:#9799a0;
+}
+.downArrow
+{
+  background-image: url("/assets/Images/ic_arrow_forward_black_24px.svg");
+  width: 15px;
+
+  transform: rotate(90deg);
+  margin-left: 2px;
+}
+.leftArrow
+{
+  background-image: url("/assets/Images/ic_arrow_forward_black_24px.svg");
+  width: 25px;
+  transform: rotate(180deg);
+  margin-left: 2px;
+  border: 1px solid #9A9A9A;
+  height: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.rightArrow
+{
+  background-image: url("/assets/Images/ic_arrow_forward_black_24px.svg");
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  border: 1px solid #9A9A9A;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.filters
+{
+  height: 100px;
+  border:1px solid #bfc0c1;
+  background: #f2f3f4;
+}
+.selectStyle
+{
+  height:30px;
+  color: #555;
+  font-family: avernirMedium;
+  width: 150px;
+}
+.filters div
+{
+  padding: 10px 0px 10px 0px;
+}
+.marginRemove
+{
+  margin-bottom: -7px;
+  text-transform: uppercase;
+  font-family: avernirMedium;
+  font-size: 12px;
+  color: #9799a0;
+}
+.filterStatus,.filterRegistrationType,.filterRegisteringClub,.filterAssignees,.filterSections,.filterPendingSections
+{
+  width: 160px;
+}
+.filterinputStyle
+{
+  height:25px;
+  color: #555;
+  font-family: avernirMedium;
+  background-image: url("/assets/Images/ic_search_grey.svg");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 5px 5px;
+  border:1px solid rgb(169, 169, 169);
+  width: 150px;
+  text-indent: 25px!important;
+
+}
+::placeholder {
+    opacity: 0.4;
+    font-family: avernirRegular;
+    font-weight: bold;
+    font-size: 14px;
+}
+.filterStatus
+{
+  margin: 0px 0px 0px 20px;
+}
+.paginationControls
+{
+  margin: 15px 0px 15px 18px;
+  padding-top: 15px;
+  font-family: avernirMedium;
+  font-size: 14px;
+  border-top:1px solid #ccc;
+}
+.paginationInput
+{
+  width:30px;
+  text-align: center;
+}
+.paginationBottom
+{
+  flex-basis: 1174px;
+  position: relative;
+  margin-top: -6px;
+}
+.noDetails
+{
+  margin: 0px 20px 0px 20px;
+  padding-top: 10px;
+  font-family: avernirMedium;
+  font-weight: bold;
+  border-top:1px solid #ccc;
+}
+.noBorder
+{
+  border:none;
+
+}
+.submissionData
+{
+    height: 489px;
+}
+.hoverStyle:hover
+{
+  
+  border: 1px solid #ccc;
+}
+.removeIcon
+{
+  background-color: #555;
+  color: #ccc;
+  font-size: 12px;
+  height: 18px;
+  width: 18px;
+  border-radius: 50px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.removeText
+{
+  margin:0px 5px;
+}
+
+/*------------------------*/
+.addAssigneeModal
+{
+  position: fixed;
+  z-index: 100;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 1300px; 
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.addAssigneeContent
+{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 25px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close
+{
+  cursor: pointer;
+  float: right;
+  font-size: 35px;
+}
+.approveButton,.rejectButton
+{
+  font-family: avernirRegular;
+  font-weight: bold;
+  width: 86px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 2px;
+  color: #fff;
+  margin-left: 10px;
+  padding: 10px 10px;
+  cursor:pointer;
+  background-color: green;
+}
+.rejectButton
+{
+  background-color: red;
+}
+.deleteConfirmation
+{
+  padding: 25px 0px;
+}
+.alignCenter
+{
+  margin-left: 380px;
+}

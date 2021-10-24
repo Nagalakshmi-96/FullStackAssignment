@@ -1,0 +1,113 @@
+.addAssigneeButton
+{
+  font-family:avernirMedium;
+  font-size:30px;
+  z-index:1;
+  position: relative;
+  text-align: center;
+}
+.addAssignee
+{
+  border: 2px solid #082c66;
+  border-radius: 40px;
+  width:30px;
+  height: 30px;
+}
+.plusSymbol
+{
+  margin:-9px 0px 0px 0px;
+  color:#082c66;
+}
+.assigneePopup
+{
+  position: absolute;
+  width: 260px;
+  height: 72px;
+  border: 1px solid #CCc;
+  background-color: #fff;
+  margin: 5px 0px 0px -220px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 7px #ccc;
+  z-index:2;
+  color:#3a3c42
+}
+.assigneePopupContents
+{
+  margin: 7px;
+}
+.addAssigneeContainer
+{
+  margin-top: 4px;
+}
+.assigneeInput
+{
+  width: 100px;
+  height:27px;
+  border: 1px solid #082c66;
+  border-radius: 3px;
+}
+.assigneePopupText
+{
+  margin:3px 7px;
+}
+.assignToMeButton
+{
+  width: 100px;
+  height: 18px;
+  border: 1px solid #082c66;
+  border-radius: 3px;
+  text-align: center;
+  color: #082c66;
+  padding: 6px 0px;
+  font-size: 12px;
+  font-family: avernirMedium;
+}
+.closeButton
+{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-family: avernirBold;
+  font-size: 13px;
+}
+.assigneeInput::-webkit-calendar-picker-indicator {
+  display: none;
+}
+.cancelAssignee
+{
+  position: absolute;
+  left: 90px;
+  top: 39px;
+  background-color: #555;
+  color: white;
+  border-radius: 77px;
+  font-size: 10px;
+  width: 15px;
+  height: 15px;
+  font-family: avernirBold;
+  text-align: center;
+}
+.plusSymbolAssigned
+{
+  margin: 4px 0px 0px 0px;
+  padding-top: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-family: avernirBold;
+
+}
+.JCassignee
+{
+  background-color: #082c66;
+  border:1px solid #082c66;
+}
+.FTAssignee
+{
+  background-color: #6d6e70;
+  border:1px solid #6d6e70;
+}
+.TLAssignee
+{
+  background-color: #d33317;
+  border:1px solid #d33317;
+}

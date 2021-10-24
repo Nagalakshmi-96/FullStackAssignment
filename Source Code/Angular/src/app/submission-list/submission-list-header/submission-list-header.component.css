@@ -1,0 +1,336 @@
+.searchBarContainer
+{
+  height: 100px;
+  background-image:url('/assets/Images/Top of submission.png');
+  background-color: rgba(0,0,0,0.90);
+  display:flex;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: avernirBold;
+}
+.componentName
+{
+  padding: 38px 20px;
+  color: #fff;
+  font-family: avernirMedium;
+}
+.searchInput
+{
+  width: 450px;
+  height: 30px;
+  background-image: url(/assets/Images/ic_search_black_24px.svg);
+  background-repeat: no-repeat;
+  background-position: 10px 7px;
+  border-radius: 3px;
+  background-color: rgba(255,255,255,0.07);
+  background-size: 20px;
+  border:none;
+  font-size:14px;
+  font-family: avernirBold;
+  color: #e8e8e8;
+  text-indent:40px!important;
+}
+.searchBar
+{
+  padding: 35px;
+  margin-left:200px;
+
+
+}
+
+.searchInput::placeholder {
+    padding-left: 30px;
+    color: #e8e8e8;
+    opacity: 0.3;
+    font-family: avernirRegular;
+    font-weight: bold;
+    font-size: 14px;
+    text-indent:10px!important;
+}
+
+
+
+.addPlayerContainer
+{
+    width: 155px;
+    float: left;
+    font-family: avernirMedium;
+    cursor: pointer;
+    margin-left: 200px;
+    
+  
+}
+
+.addPlayerButton
+{
+  background-color: #cfd0d3;
+  color: #4b4c4f;
+  padding: 5px 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+
+.addAssigneeModal
+{
+  position: fixed;
+  z-index: 100;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 1300px; 
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.addAssigneeContent
+{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 50px 50px 150px 50px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close
+{
+  cursor: pointer;
+  float: right;
+  font-size: 35px;
+}
+
+
+
+
+.submissionsMenu
+{
+  font-family: avernirMedium;
+  text-transform: uppercase;
+  font-size: 18px;
+  height: 70px;
+}
+.totalSubmissions
+{
+  width: 150px;
+  float: left;
+  padding: 20px 20px;
+}
+.filtersContainer
+{
+  font-size: 14px;
+  float: right;
+  padding: 20px 20px;
+}
+.displayStyleFlex
+{
+  display: flex;
+}
+.filtersContainer
+{
+  float: right;
+}
+.customCheckBox
+{
+  -webkit-appearance: none;
+	background: url('../../../assets/Images/ic_check_box.svg');
+  background-size: contain;
+  width: 21px;
+  height: 21px;
+  background-repeat: no-repeat;
+}
+.customCheckBox:checked {
+	background: url('/assets/Images/ic_check_box_checked.svg');
+  background-size: contain;
+  width: 21px;
+  height: 21px;
+  background-repeat: no-repeat;
+}
+.dropdownIcon
+{
+  background: url('../../../assets/Images/arrow-down.svg');
+	background-size: contain;
+	width: 25px;
+	height: 25px;
+  margin-top: -4px;
+}
+.dropdownIconInverted
+{
+  background: url('../../../assets/Images/arrow-down.svg');
+	background-size: contain;
+	width: 25px;
+	height: 25px;
+  margin-top: -4px;
+  transform: rotate(180deg);
+}
+.showFilterContainer
+{
+  padding-left: 25px;
+  width: 141px;
+}
+.showFilter
+{
+  width: 92px;
+}
+.clearFilterIcon
+{
+  background: url('../../../assets/Images/Clearfilters.svg');
+	width: 19px;
+	height: 17px;
+	background-repeat: no-repeat;
+  margin: 0px 10px 0px 15px;
+}
+.checkboxValue,.clearFilterContainer,.showFilterContainer
+{
+  margin-top: 6px;
+  color:#3a3c42;
+}
+.assignedToMeCheckBox
+{
+  margin: 0px 10px;
+}
+.filters
+{
+  height: 100px;
+  border:1px solid #bfc0c1;
+  background: #f2f3f4;
+}
+.selectStyle
+{
+  height:30px;
+  color: #555;
+  font-family: avernirMedium;
+  width: 150px;
+}
+.filters div
+{
+  padding: 10px 0px 10px 0px;
+}
+.marginRemove
+{
+  margin-bottom: -7px;
+  text-transform: uppercase;
+  font-family: avernirMedium;
+  font-size: 12px;
+  color: #9799a0;
+}
+.filterStatus,.filterRegistrationType,.filterRegisteringClub,.filterAssignees,.filterSections,.filterPendingSections
+{
+  width: 160px;
+}
+.filterinputStyle
+{
+  height:25px;
+  color: #555;
+  font-family: avernirMedium;
+  background-image: url("/assets/Images/ic_search_grey.svg");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: 5px 5px;
+  border:1px solid rgb(169, 169, 169);
+  width: 150px;
+  text-indent: 25px!important;
+
+}
+.filterinputStyle::placeholder {
+    opacity: 0.4;
+    font-family: avernirRegular;
+    font-weight: bold;
+    font-size: 14px;
+}
+.filterStatus
+{
+  margin: 0px 0px 0px 20px;
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+.playerDetailsContainer
+{
+  margin: 0px 0px 0px 40px;
+}
+.playerHeading
+{
+  font-size: 20px;
+  font-family: avernirMedium;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+  padding: 0px 0px 10px 0px;
+  width: 860px;
+}
+.playerDetailsHeading,.submissionMetaDetaHeading
+{
+  padding: 0px 0px 10px 0px;
+  font-family: avernirBold;
+}
+.playerData
+{
+  padding: 10px 0px;
+}
+.playerPersonalDataKey
+{
+  width: 175px;
+  color:#9a9c9e;
+  font-weight: bold;
+  font-family: avernirMedium;
+
+}
+.playerPersonalDataValue
+{
+  width: 190px;
+  font-size: 14px;
+  text-transform: none;
+  color:#595960;
+  font-weight: bold;
+
+}
+.playerPersonalDataKey
+{
+  font-size: 14px;
+}
+.customInputStyle
+{
+  height: 25px;
+  border: 1px solid #595960;
+  font-family: avernirMedium;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  text-indent: 5px;
+}
+.errorMessage
+{
+  font-size: 13px;
+  color: red;
+  margin: 3px 0px 3px 0px;
+  font-family: avernirMedium;
+}
+.errorBorder
+{
+  border:1px solid red;
+}
+.approveButton,.rejectButton
+{
+  font-family: avernirRegular;
+  font-weight: bold;
+  width: 86px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 2px;
+  color: #fff;
+  margin-left: 10px;
+  padding: 10px 10px;
+  cursor:pointer;
+  background-color: green;
+}
+.rejectButton
+{
+  background-color: red;
+}
+.pagDisabled
+{
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

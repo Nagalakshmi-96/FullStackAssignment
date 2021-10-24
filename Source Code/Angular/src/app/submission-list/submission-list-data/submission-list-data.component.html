@@ -1,0 +1,107 @@
+
+<div class="dataHeader headerFont displayStyleFlex noBorder">
+  <div class="playerProfile">Profile</div>
+  <div class="registrationType">Registration Type</div>
+  <div class="registeringClub">Registering Club</div>
+  <div class="sectionStatuses">Section Statuses</div>
+  <div class="createdDate displayStyleFlex">
+    <div>Created Date</div>
+    <div class="downArrow"></div>
+  </div>
+  <div class="pagination displayStyleFlex">
+    <div class="displayRight displayStyleFlex">
+      <div class="leftArrow dataCursor" (click)="setPage(pager.currentPage - 1)" [ngClass]="{pagDisabled:pager.currentPage === 1 || pager.currentPage===0}"></div>
+      <div class="rightArrow dataCursor" (click)="setPage(pager.currentPage + 1)" [ngClass]="{pagDisabled:pager.currentPage === pager.totalPages}"></div>
+  </div>
+  </div>
+</div>
+<div align="center" *ngIf="showLoader" class="noDetails">
+  <img src="assets/Images/loader.gif"/>
+  
+</div>
+<div *ngIf="pager.totalPages==0 && !showLoader" class="noDetails">
+  No Records Found
+</div>
+
+<div class="submissionData"  >
+<div class="dataHeader hoverStyle dataCursor displayStyleFlex" *ngFor="let val of pagedItems"  [routerLink]="['/playerDetails',val.playerID]" >
+
+
+  <div class="playerProfile">
+    <div class="displayStyleFlex">
+      <div class="userAvatar">
+      </div>
+      <div class="profileDetails ">
+        <div class="userName overflowEllipis">{{val.firstName}}</div>
+        <div class="userName overflowEllipis">{{val.lastName}}</div>
+        <div class="userStatus" [ngClass]="findApplicationStatus(val.status)">{{val.status}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="registrationType">
+    <div>{{val.registrationType}}</div>
+    <div class="userRegistrationID">{{val.registrationID}}</div>
+  </div>
+  <div class="registeringClub">{{val.registeringClub}}</div>
+  <div class="sectionStatuses displayStyleFlex">
+    <div class="sectionStatusesFirst">
+        <div class="displayStyleFlex">
+          <div [ngClass]="findStatusIcon(val.player)"></div><div>Player</div>
+        </div>
+        <div class="displayStyleFlex">
+          <div [ngClass]="findStatusIcon(val.registration)"></div><div>Registration</div>
+        </div>
+        <div class="displayStyleFlex">
+          <div [ngClass]="findStatusIcon(val.registration)"></div><div>Transfer</div>
+        </div>
+    </div>
+    <div class="sectionStatusesSecond">
+        <div class="displayStyleFlex">
+          <div [ngClass]="findStatusIcon(val.intermediaries)"></div><div>Intermediaries</div>
+        </div>
+        <div class="displayStyleFlex">
+          <div [ngClass]="findStatusIcon(val.itc)"></div><div>ITC</div>
+        </div>
+        <div class="displayStyleFlex">
+          <div [ngClass]="findStatusIcon(val.gbe)"></div><div>GBE</div>
+        </div>
+    </div>
+  </div>
+  <div class="createdDate">
+    <div>{{val.createdDateTime | date:'dd MMM y'}}</div>
+    <div>@ {{val.createdDateTime | date:'hh:mm a'}}</div>
+  </div>
+  <div class="assignedTo"  (clickOutside)="onClickedOutside($event)" (click)="$event.stopPropagation()"><app-add-assignee [player]="val"></app-add-assignee></div>
+  <div class="commentsIcon">
+  </div>
+  <div class="settingsIcon">
+  </div>
+  <div class="removeIcon" (click)="showDeletePlayer($event,val.playerID)">
+    <span class="removeText">X</span>
+  </div>
+</div>
+</div>
+<div class="paginationControls displayStyleFlex">
+  <div class="pagInputStyle">
+    Page <input type="text" [(ngModel)]="pager.currentPage" (keyup)="setPage($event.target.value)" class="paginationInput"/> of {{pager.totalPages}}
+  </div>
+  <div class="paginationBottom displayStyleFlex">
+    <div class="displayRight displayStyleFlex">
+      <div class="leftArrow dataCursor" (click)="setPage(pager.currentPage - 1)" [ngClass]="{pagDisabled:pager.currentPage === 1 || pager.currentPage===0 }"></div>
+      <div class="rightArrow dataCursor" (click)="setPage(pager.currentPage + 1)" [ngClass]="{pagDisabled:pager.currentPage === pager.totalPages}"></div>
+    </div>
+</div>
+</div>
+
+
+<div class="addAssigneeModal" *ngIf="cancelPlayerModal">
+
+  <div class="addAssigneeContent" align="center">
+    <span class="close" (click)="cancelDeletePlayer()">&times;</span>
+    <div class="deleteConfirmation">Are you Sure want to Delete?</div>
+    <div class="displayStyleFlex alignCenter">
+      <div class="approveButton"  (click)="deletePlayer()">Delete</div>
+      <div class="rejectButton" (click)="cancelDeletePlayer()">Cancel</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,191 @@
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@font-face
+{
+  font-family: avernirDemi;
+  src: url('assets/Fonts/avenir-next-demi.ttf');
+}
+@font-face
+{
+    font-family: avernirRegular;
+    src: url('assets/Fonts/avenir-next-regular.ttf');
+}
+@font-face
+{
+    font-family: avernirMedium;
+    src: url('assets/Fonts/avenir-next-medium.ttf');
+}
+@font-face
+{
+    font-family: avernirBold;
+    src: url('assets/Fonts/avenir-next-bold.ttf');
+}
+/* Style for Body */
+body
+{
+  margin: 0px;
+  max-width:1300px;
+  min-width: 1300px;
+}
+.displayStyleFlex
+{
+  display: flex;
+}
+.dataCursor
+{
+  cursor:pointer;
+}
+input
+{
+  outline:none;
+}
+
+.pendingStyle
+{
+  color:#f7ac02;
+}
+.holdStyle
+{
+  color:#2c4ac1;
+}
+.rejectedStyle
+{
+  color:#f71509
+}
+.approvedStyle
+{
+  color:#23874d;
+}
+.pendingStyle2
+{
+  color: #f2c460;
+}
+
+
+.pendingStyleBg
+{
+  background:#f7ac02;
+}
+.holdStyleBg
+{
+  background:#2c4ac1;
+}
+.rejectedStyleBg
+{
+  background:#f71509
+}
+.approvedStyleBg
+{
+  background:#23874d;
+}
+.pendingStyle2Bg
+{
+  background: #f2c460;
+}
+
+
+.pendingIcon
+{
+  background-image: url("/assets/Images/Orange-dash.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 11px;
+  height: 11px;
+  padding: 0px 3px 0px 0px;
+  margin: 4px 0px 0px 0px;
+}
+.approvedIcon
+{
+  background-image: url("/assets/Images/Green-tick.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 11px;
+  height: 11px;
+  padding: 0px 3px 0px 0px;
+  margin: 4px 0px 0px 0px;
+}
+.rejectedIcon
+{
+  background-image: url("/assets/Images/REJECTED.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 12px;
+  height: 12px;
+  padding: 0px 3px 0px 0px;
+  margin: 4px 0px 0px 0px;
+}
+.NAIcon
+{
+  background-image: url("assets/Images/NotApplicable.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 11px;
+  height: 11px;
+  padding: 0px 3px 0px 0px;
+  margin: 4px 0px 0px 0px;
+}
+.holdIcon
+{
+  background-image: url("assets/Images/Onhold.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 11px;
+  height: 11px;
+  padding: 0px 3px 0px 0px;
+  margin: 4px 0px 0px 0px;
+}
+select
+{
+  outline:none;
+}
+.displayRight
+{
+  position: absolute;
+  right: 10px;
+
+}
+.mediumFontBold
+{
+  font-family:avernirMedium;
+  font-weight:bold;
+  color:#9a9c9e;
+}
+.mediumFontBoldColor
+{
+  font-family:avernirMedium!important;
+  font-weight:bold;
+  color:#595960;
+}
+.overflowEllipis
+{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.overflowEllipisNoWrap
+{
+  overflow: hidden;
+  white-space:normal;
+  text-overflow: ellipsis!important;
+}
+.pagDisabled
+{
+
+  opacity:0.5;
+  cursor: not-allowed;
+}
+label
+{
+  font-family: avernirMedium;
+
+}
+.notFound
+{
+  font-weight: bold;
+  font-family: avernirMedium;
+  height: 600px;
+  background: #ccc;
+  text-align: center;
+  padding-top: 50px;
+
+  color:red;
+}

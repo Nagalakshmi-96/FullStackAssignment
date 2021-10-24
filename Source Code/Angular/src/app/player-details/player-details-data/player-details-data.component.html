@@ -1,0 +1,246 @@
+
+<div class="playerDetailsOuterContainer displayStyleFlex">
+
+  <div class="statusTimelineContainer">
+    <div class="playerOverview">
+      <div class="statusPlayerProfile displayStyleFlex">
+        <div class="statusUserAvatar"></div>
+        <div class="statusUserName overflowEllipis">{{player.firstName}}<br>{{player.lastName}}</div>
+        <div class="statusUserDOB">{{player.dateOfBirth}}</div>
+      </div>
+      <div class="statusScholarship">Scholarship to</div>
+      <div class="displayStyleFlex">
+        <div class="statusClubLogo"></div>
+        <div class="statusClubName">{{player.registeringClub}}</div>
+      </div>
+      <div class="statusOfRegistration" [ngClass]="getColor(player.status)">{{player.status}}</div>
+      <div class="timeline"></div>
+    </div>
+  </div>
+
+  
+  <div class="playerDetailsContainer">
+      
+    <div class="playerHeading mediumFontBoldColor" >
+      Player details
+    </div>
+    <div class="playerSubmissionData displayStyleFlex" [formGroup]="playerForm">
+      <div class="playerDetails">
+        <div class="playerProfile displayStyleFlex ">
+          <div class="playerAvatar">
+          </div>
+          <div class="playerName ">
+            <div class="firstLastName mediumFontBoldColor overflowEllipis">
+              {{player.firstName}} {{player.lastName}}
+            </div>
+          </div>
+        </div>
+        <div class="playerDetailsHeading mediumFontBoldColor">Player Details</div>
+        <div class="playerPersonalDetails">
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Player's Legal Name</div>
+            <div class="playerPersonalDataValue overflowEllipis" *ngIf="!editFlag">{{player.firstName}}  {{player.lastName}}</div>
+            <div *ngIf="editFlag">
+              <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="firstName" [ngClass]="{'errorBorder': playerForm.get('firstName').errors}"/></div>
+
+              <div *ngIf="playerForm.get('firstName').invalid" class="errorMessage playerPersonalDataValue">
+                <div *ngIf="playerForm.get('firstName').errors.required">First Name is required</div>
+                <div *ngIf="playerForm.get('firstName').errors.minlength">First Name must be at least 4 characters long</div>
+                <div *ngIf="playerForm.get('firstName').errors.maxlength">Max Length should be 40 characters Only</div>
+                <div *ngIf="playerForm.get('firstName').errors.pattern">Only alphabets are allowed</div>
+              </div>
+
+              <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="lastName" [ngClass]="{'errorBorder': playerForm.get('lastName').errors}"/></div>
+              <div *ngIf="playerForm.get('lastName').invalid" class="errorMessage playerPersonalDataValue">
+                <div *ngIf="playerForm.get('lastName').errors.required">Last Name is required</div>
+                <div *ngIf="playerForm.get('lastName').errors.minlength">Last Name must be at least 3 characters long</div>
+                <div *ngIf="playerForm.get('lastName').errors.maxlength">Max Length should be 40 characters Only</div>
+                <div *ngIf="playerForm.get('lastName').errors.pattern">Only alphabets are allowed</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Player's Preferred Name</div>
+            <div class="playerPersonalDataValue" *ngIf="!editFlag">{{player.preferredName}}</div>
+            <div *ngIf="editFlag">
+              <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="preferredName" [ngClass]="{'errorBorder': playerForm.get('preferredName').errors}"/></div>
+              <div *ngIf="playerForm.get('preferredName').invalid" class="errorMessage playerPersonalDataValue">
+                <div *ngIf="playerForm.get('preferredName').errors.required">Preferred Name is required</div>
+                <div *ngIf="playerForm.get('preferredName').errors.maxlength">Max Length should be 40 characters Only</div>
+                <div *ngIf="playerForm.get('preferredName').errors.pattern">Only alphabets are allowed</div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Gender</div>
+            <div class="playerPersonalDataValue" *ngIf="!editFlag">{{player.gender}}</div>
+            <div *ngIf="editFlag">
+              <input name="gender" type="radio" value="Male" formControlName="gender" id="maleRadioBox"><label for="maleRadioBox">Male</label>
+              <input name="gender" type="radio" value="Female" formControlName="gender" id="femaleRadioBox"><label for="femaleRadioBox">Female</label>
+            </div>
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Date of Birth</div>
+
+            <div class="playerPersonalDataValue" *ngIf="!editFlag">{{player.dateOfBirth}}</div>
+
+            <div *ngIf="editFlag">
+              <div class="playerPersonalDataValue" ><input type="text" required class="customInputStyle" [ngClass]="{'errorBorder': playerForm.get('dateOfBirth').errors}" formControlName="dateOfBirth" ng2-datetime-picker date-format="DD-MM-YYYY hh:mm" date-format="DD MMM YYYY" date-only="true"/></div>
+
+              <div *ngIf="playerForm.get('dateOfBirth').invalid" class="errorMessage playerPersonalDataValue">
+
+                <div *ngIf="playerForm.get('dateOfBirth').errors.pattern">Enter a valid Date</div>
+              </div>
+          </div>
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Country of Birth</div>
+
+            <div class="playerPersonalDataValue overflowEllipis" *ngIf="!editFlag">{{player.countryOfBirth}}</div>
+
+
+
+            <div *ngIf="editFlag">
+              <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="countryOfBirth" [ngClass]="{'errorBorder': playerForm.get('countryOfBirth').errors}"/></div>
+              <div *ngIf="playerForm.get('countryOfBirth').invalid" class="errorMessage playerPersonalDataValue">
+                <div *ngIf="playerForm.get('countryOfBirth').errors.required">Country is required</div>
+                <div *ngIf="playerForm.get('countryOfBirth').errors.minlength">Country must be at least 4 characters long</div>
+                <div *ngIf="playerForm.get('countryOfBirth').errors.maxlength">Max Length should be 40 characters Only</div>
+                <div *ngIf="playerForm.get('countryOfBirth').errors.pattern">Only alphabets are allowed</div>
+              </div>
+             </div>
+           </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Town/City of Birth</div>
+            <div class="playerPersonalDataValue overflowEllipis" *ngIf="!editFlag">{{player.townOfBirth}}</div>
+            <div *ngIf="editFlag">
+              <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="townOfBirth" [ngClass]="{'errorBorder': playerForm.get('townOfBirth').errors}"/></div>
+              <div *ngIf="playerForm.get('townOfBirth').invalid" class="errorMessage playerPersonalDataValue">
+                <div *ngIf="playerForm.get('townOfBirth').errors.required">Town/City is required</div>
+                <div *ngIf="playerForm.get('townOfBirth').errors.minlength">Town/City must be at least 4 characters long</div>
+                <div *ngIf="playerForm.get('townOfBirth').errors.maxlength">Max Length should be 40 characters Only</div>
+                <div *ngIf="playerForm.get('townOfBirth').errors.pattern">Only alphabets are allowed</div>
+              </div>
+             </div>
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Nationalities</div>
+            <div class="playerPersonalDataValue overflowEllipis" *ngIf="!editFlag">{{player.nationalities}}</div>
+            <div *ngIf="editFlag">
+              <div class="playerPersonalDataValue "><input type="text" class="customInputStyle" formControlName="nationalities" [ngClass]="{'errorBorder': playerForm.get('nationalities').errors}"/></div>
+              <div *ngIf="playerForm.get('nationalities').invalid" class="errorMessage playerPersonalDataValue">
+                <div *ngIf="playerForm.get('nationalities').errors.required">Nationalities is required</div>
+                <div *ngIf="playerForm.get('nationalities').errors.minlength">Nationalities must be at least 4 characters long</div>
+                <div *ngIf="playerForm.get('nationalities').errors.maxlength">Max Length should be 40 characters Only</div>
+                <div *ngIf="playerForm.get('nationalities').errors.pattern">Only alphabets are allowed</div>
+              </div>
+             </div>
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">National Insurance Number</div>
+            <div class="playerPersonalDataValue overflowEllipis" *ngIf="!editFlag">{{player.nationalInsuranceNumber}}</div>
+            <div *ngIf="editFlag">
+              <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="nationalInsuranceNumber" [ngClass]="{'errorBorder': playerForm.get('nationalInsuranceNumber').errors}"/></div>
+              <div *ngIf="playerForm.get('nationalInsuranceNumber').invalid" class="errorMessage playerPersonalDataValue">
+                <div *ngIf="playerForm.get('nationalInsuranceNumber').errors.required">National Insurance Number is required</div>
+                <div *ngIf="playerForm.get('nationalInsuranceNumber').errors.minlength">National Insurance Number must be at least 4 characters long</div>
+                <div *ngIf="playerForm.get('nationalInsuranceNumber').errors.maxlength">Max Length should be 40 characters Only</div>
+                <div *ngIf="playerForm.get('nationalInsuranceNumber').errors.pattern">Only alphabets are allowed</div>
+              </div>
+             </div>
+
+          </div>
+
+        </div>
+
+        <div class="submissionMetaDetaHeading mediumFontBoldColor">Submission Metadata</div>
+        <div class="submissionMetaDetaContainer">
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Created On</div>
+            <div class="playerPersonalDataValue" >{{player.createdDateTime| date:'dd MMM y @ hh:mm a'}}</div>
+
+            
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Submitted On</div>
+            <div class="playerPersonalDataValue"  >{{player.submittedDateTime| date:'dd MMM y @ hh:mm a'}}</div>
+
+            
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Submitted By</div>
+            <div class="playerPersonalDataValue" >{{player.submittedBy}}</div>
+            
+          </div>
+          <div class="verticalSpacing"></div>
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Last Updated</div>
+            <div class="playerPersonalDataValue">{{player.lastUpdatedDateTime | date:'dd MMM y @ hh:mm a'}}</div>
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Updated By</div>
+            <div class="playerPersonalDataValue">{{player.updatedBy}}</div>
+          </div>
+
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">System Updated</div>
+            <div class="playerPersonalDataValue">FAS</div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="playerSubmissions">
+        <div class="attachmentsHeading">
+          Attachments
+        </div>
+        <div class="proofsListContainer">
+
+          <div class="proofsList displayStyleFlex ">
+            <div class="proofName mediumFontBold">Player Identification
+            </div>
+            <div class="uploadStatus displayStyleFlex ">
+              <div class="uploadStatusIcon "></div>
+              <div class="mediumFontBold">Uploaded</div>
+            </div>
+            <div class="showUpload displayStyleFlex mediumFontBoldColor">
+              <div>Show Upload</div>
+              <div class="upArrow"></div>
+            </div>
+          </div>
+
+          <div class="proofsList displayStyleFlex">
+            <div class="proofName mediumFontBold">Birth Certificate
+            </div>
+            <div class="uploadStatus displayStyleFlex">
+              <div class="uploadStatusIcon mediumFontBold"></div>
+              <div class="mediumFontBold">Uploaded</div>
+            </div>
+            <div class="showUpload displayStyleFlex mediumFontBoldColor">
+              <div>Show Upload</div>
+              <div class="upArrow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,103 @@
+﻿body
+{
+  margin: 0px;
+  max-width:1300px;
+  min-width: 1300px;
+}
+.navBarTop
+{
+  height:40px;
+  text-transform: uppercase;
+  border-left: 1px solid #303030;
+  border-bottom: 1px solid #303030;
+  font-size: 13px;
+}
+.displayStyleFlexTop
+{
+  display:flex;
+}
+#navLogoTop
+{
+  background-image: url('../../assets/images/falogo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 10px 0px;
+  width: 21px;
+  height: 21px;
+}
+.navTitleContainerTop
+{
+  width:155px;
+  margin: 0px 0px 0px 10px;
+}
+.navTitleTop
+{
+  margin: 13px 0px 0px 10px;
+  font-family: avernirBold;
+  letter-spacing: 2px;
+}
+.navCrossTop
+{
+  border-left: 40px solid transparent;
+  border-bottom: 40px solid #303030;
+
+}
+.navMenuContainerTop
+{
+  background-color: #303030;
+  width:1145px;
+}
+.submissionsMenuContainerTop
+{
+  float: left;
+  cursor:pointer;
+}
+.profileContainerTop
+{
+  float: right;
+  margin: 0px 30px 0px 0px;
+}
+#hamburgerIconTop
+{
+  background-image: url('../../assets/images/submissions-menu.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 13px 17px;
+  margin: 7px 0px;
+
+}
+.submissionsMenuTextTop,.clubNameTop,.userNameTop
+{
+  color:#71767a;
+  margin: 13px 0px;
+  font-family: avernirBold;
+  text-transform: none;
+  font-size: 14px;
+}
+.submissionsMenuTextTop
+{
+  text-transform: uppercase;
+  color:#caccce;
+}
+#navProfileLogoTop
+{
+  background-image: url('../../assets/images/falogo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 0px 16px;
+  margin: 9px 0px;
+
+}
+.verticalLineTop
+{
+  color:#fff;
+  margin: 11px 10px;
+}
+.navDropdownArrowTop
+{
+  background-image: url('../../assets/images/arrow-down-solid-grey.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 0px 16px;
+  margin: 9px 0px 9px 9px;
+}

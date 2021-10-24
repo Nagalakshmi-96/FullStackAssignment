@@ -1,0 +1,337 @@
+<div class="searchBarContainer">
+  <div class="componentName">
+    Submissions
+  </div>
+  <div class="searchBar">
+    <input type="text" class="searchInput" [(ngModel)]="searchSubmissions" (ngModelChange)="callFilter(1,searchSubmissions)" placeholder="Search Submissions"/>
+  </div>
+</div>
+
+
+<div class="submissionsMenu">
+  <div class="totalSubmissions">
+    <span id="submissionsCount">{{totalSubmissions}}</span> Submissions
+  </div>
+
+  <div class="addPlayerContainer" (click)="addPlayerModalShow()">
+    <div class="addPlayerButton">
+        ADD PLAYER
+    </div>
+    
+  </div>
+  
+    <div class="filtersContainer ">
+    <div class="filtersOuterContainer displayStyleFlex">
+  		<div class="assignedToMeCheckBox displayStyleFlex">
+        <input type="checkbox" class="customCheckBox" id="assignedToMe"/>
+        <div class="checkboxValue"><label for="assignedToMe">Assigned To Me</label></div>
+      </div>
+      <div class="pendingFACheckBox displayStyleFlex">
+         <input type="checkbox" class="customCheckBox" id="pendingFA"/>
+         <div class="checkboxValue"><label for="pendingFA">PENDING FA</label></div>
+       </div>
+      <div class="clearFilterContainer displayStyleFlex dataCursor" (click)="clearFiltersFn()">
+        <div class="clearFilterIcon"></div>
+        <div class="filterValue"> CLEAR FILTERS </div>
+      </div>
+  		<div class="showFilterContainer displayStyleFlex dataCursor" (click)="showHideFilterFn()"><div class="showFilter">{{showHideFilterButton}}</div><div [ngClass]="filterArrow"> </div> </div>
+    </div>
+	</div>
+</div>
+<div class="filters displayStyleFlex" *ngIf="showHideFilter" [@bounce]="bounce">
+
+  <div class="filterStatus">
+    <div class="marginRemove">Status</div>
+    <select class="selectStyle" [(ngModel)]="filterStatusval" (ngModelChange)="callFilter(3,filterStatusval)">
+      <option selected>All statuses</option>
+
+      <option *ngFor="let s of metadata_status_Input_Meta">{{s}}</option>
+    </select>
+  </div>
+  <div class="filterRegistrationType">
+    <div class="marginRemove" >Registration Type</div>
+    <select class="selectStyle" [(ngModel)]="filterRegType" (ngModelChange)="callFilter(4,filterRegType)">
+      <option selected>All types</option>
+      <option *ngFor="let s of metadata_registration_type_Input_Meta">{{s}}</option>
+    </select>
+  </div>
+  <div class="filterRegisteringClub">
+    <div class="marginRemove">Registering Club</div>
+    <input type="text" class="filterinputStyle" placeholder="Search Clubs" [(ngModel)]="filterRegClub" (ngModelChange)="callFilter(2,filterRegClub)"/>
+  </div>
+  <div class="filterAssignees">
+    <div class="marginRemove">Assignees</div>
+    <select class="selectStyle" [(ngModel)]="filterAssignees" (ngModelChange)="callFilter(5,filterAssignees)">
+      <option selected>All assignees</option>
+      <option *ngFor="let a of assignees" >{{a.assignee}}</option>
+    </select>
+    
+  </div>
+  <div class="filterSections">
+    <div class="marginRemove">Sections</div>
+    <select class="selectStyle" [(ngModel)]="filterSections" (ngModelChange)="callFilter(6,filterSections)">
+      <option selected>All sections</option>
+      <option *ngFor="let s of metadata_section_status_name">{{s}}</option>
+    </select>
+  </div>
+  <div class="filterPendingSections">
+    <div class="marginRemove">Pending Section</div>
+    <select class="selectStyle">
+      <option selected>All sections</option>
+      <option *ngFor="let s of metadata_section_status_name">{{s}}</option>
+    </select>
+  </div>
+</div>
+
+<app-submission-list-data (totalLengthEvent)="receiveLength($event)" [searchText]="searchSubmissions" [filterStatus]="filterStatusval" [filterRegType]="filterRegType" [filterRegClub]="filterRegClub" [filterSections]="filterSections" [filterAssignees]="filterAssignees"></app-submission-list-data>
+
+
+<div class="addAssigneeModal" *ngIf="addPlayerModal">
+
+    <div class="addAssigneeContent">
+      <span class="close" (click)="cancelAddPlayer()">&times;</span>
+     
+      <div class="playerDetailsContainer" [formGroup]="playerForm">
+        <div class="playerHeading mediumFontBoldColor">
+          Add New Player
+        </div>
+        
+        <div class="playerPersonalDetails">
+          
+          <div class="playerData displayStyleFlex">
+            <div class="playerPersonalDataKey">Player's First Name</div>
+              <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="firstName" [ngClass]="{'errorBorder': playerForm.get('firstName').touched && playerForm.get('firstName').errors}"/></div>
+              <div *ngIf="playerForm.get('firstName').invalid && playerForm.get('firstName').touched" class="errorMessage playerPersonalDataValue">
+                <div *ngIf="playerForm.get('firstName').errors.required">First Name is required</div>
+                <div *ngIf="playerForm.get('firstName').errors.minlength">Min Length should be 4 characters</div>
+                <div *ngIf="playerForm.get('firstName').errors.maxlength">Max Length should be 40 characters Only</div>
+                <div *ngIf="playerForm.get('firstName').errors.pattern">Only alphabets are allowed</div>
+              </div>
+          </div>
+
+          <div class="playerData displayStyleFlex">
+              <div class="playerPersonalDataKey">Player's Last Name</div>
+                <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="lastName" [ngClass]="{'errorBorder':playerForm.get('lastName').touched &&  playerForm.get('lastName').errors}"/></div>
+                <div *ngIf="playerForm.get('lastName').invalid && playerForm.get('lastName').touched" class="errorMessage playerPersonalDataValue">
+                  <div *ngIf="playerForm.get('lastName').errors.required">Last Name is required</div>
+                  <div *ngIf="playerForm.get('lastName').errors.minlength">Min Length should be 4 characters</div>
+                  <div *ngIf="playerForm.get('lastName').errors.maxlength">Max Length should be 40 characters Only</div>
+                  <div *ngIf="playerForm.get('lastName').errors.pattern">Only alphabets are allowed</div>
+                </div>
+            </div>
+
+            <div class="playerData displayStyleFlex">
+                <div class="playerPersonalDataKey">Player's Prefeered Name</div>
+                  <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="preferredName" [ngClass]="{'errorBorder':playerForm.get('preferredName').touched &&  playerForm.get('preferredName').errors}"/></div>
+                  <div *ngIf="playerForm.get('preferredName').invalid && playerForm.get('preferredName').touched" class="errorMessage playerPersonalDataValue">
+                    <div *ngIf="playerForm.get('preferredName').errors.required">Preferred Name is required</div>
+                    <div *ngIf="playerForm.get('preferredName').errors.minlength">Min Length should be 4 characters</div>
+                    <div *ngIf="playerForm.get('preferredName').errors.maxlength">Max Length should be 40 characters Only</div>
+                    <div *ngIf="playerForm.get('preferredName').errors.pattern">Only alphabets are allowed</div>
+                  </div>
+              </div>
+
+            <div class="playerData displayStyleFlex">
+                <div class="playerPersonalDataKey">Gender</div>
+                  <input name="gender" type="radio" value="Male" formControlName="gender" id="maleRadioBox" ><label for="maleRadioBox">Male</label>
+                  <input name="gender" type="radio" value="Female" formControlName="gender" id="femaleRadioBox"><label for="femaleRadioBox">Female</label>
+            </div>
+
+            <div class="playerData displayStyleFlex">
+                <div class="playerPersonalDataKey">Date of Birth</div>    
+                  <div class="playerPersonalDataValue" ><input type="text" required class="customInputStyle" [ngClass]="{'errorBorder': playerForm.get('dateOfBirth').touched && playerForm.get('dateOfBirth').errors}" formControlName="dateOfBirth" ng2-datetime-picker date-format="DD-MM-YYYY hh:mm" date-format="DD MMM YYYY" date-only="true"/></div>
+                  <div *ngIf="playerForm.get('dateOfBirth').invalid && playerForm.get('dateOfBirth').touched" class="errorMessage playerPersonalDataValue">
+                    <div *ngIf="playerForm.get('dateOfBirth').errors.pattern">Enter a valid Date</div>
+                    <div *ngIf="playerForm.get('dateOfBirth').errors.required">Date of Birth is required</div>
+                  </div>
+              
+            </div>
+    
+            <div class="playerData displayStyleFlex">
+                <div class="playerPersonalDataKey">Country of Birth</div>
+                  <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="countryOfBirth" [ngClass]="{'errorBorder':playerForm.get('countryOfBirth').touched &&  playerForm.get('countryOfBirth').errors}"/></div>
+                  <div *ngIf="playerForm.get('countryOfBirth').invalid && playerForm.get('countryOfBirth').touched" class="errorMessage playerPersonalDataValue">
+                    <div *ngIf="playerForm.get('countryOfBirth').errors.required">Country is required</div>
+                    <div *ngIf="playerForm.get('countryOfBirth').errors.minlength">Country must be at least 4 characters long</div>
+                    <div *ngIf="playerForm.get('countryOfBirth').errors.maxlength">Max Length should be 40 characters Only</div>
+                    <div *ngIf="playerForm.get('countryOfBirth').errors.pattern">Only alphabets are allowed</div>
+                  </div>
+               </div>
+    
+              <div class="playerData displayStyleFlex">
+                <div class="playerPersonalDataKey">Town/City of Birth</div>
+                  <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="townOfBirth" [ngClass]="{'errorBorder':playerForm.get('townOfBirth').touched &&  playerForm.get('townOfBirth').errors}"/></div>
+                  <div *ngIf="playerForm.get('townOfBirth').invalid && playerForm.get('townOfBirth').touched" class="errorMessage playerPersonalDataValue">
+                    <div *ngIf="playerForm.get('townOfBirth').errors.required">Town/City is required</div>
+                    <div *ngIf="playerForm.get('townOfBirth').errors.minlength">Town/City must be at least 4 characters long</div>
+                    <div *ngIf="playerForm.get('townOfBirth').errors.maxlength">Max Length should be 40 characters Only</div>
+                    <div *ngIf="playerForm.get('townOfBirth').errors.pattern">Only alphabets are allowed</div>
+                  </div>
+              </div>
+              
+              <div class="playerData displayStyleFlex">
+                  <div class="playerPersonalDataKey">Nationalities</div>
+                    <div class="playerPersonalDataValue "><input type="text" class="customInputStyle" formControlName="nationalities" [ngClass]="{'errorBorder':playerForm.get('nationalities').touched &&  playerForm.get('nationalities').errors}"/></div>
+                    <div *ngIf="playerForm.get('nationalities').invalid && playerForm.get('nationalities').touched" class="errorMessage playerPersonalDataValue">
+                      <div *ngIf="playerForm.get('nationalities').errors.required">Nationalities is required</div>
+                      <div *ngIf="playerForm.get('nationalities').errors.minlength">Nationalities must be at least 4 characters long</div>
+                      <div *ngIf="playerForm.get('nationalities').errors.maxlength">Max Length should be 40 characters Only</div>
+                      <div *ngIf="playerForm.get('nationalities').errors.pattern">Only alphabets are allowed</div>
+                    </div>
+                </div>
+      
+                <div class="playerData displayStyleFlex">
+                  <div class="playerPersonalDataKey">National Insurance Number</div>
+                    <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="nationalInsuranceNumber" [ngClass]="{'errorBorder': playerForm.get('nationalInsuranceNumber').touched && playerForm.get('nationalInsuranceNumber').errors}"/></div>
+                    <div *ngIf="playerForm.get('nationalInsuranceNumber').invalid && playerForm.get('nationalInsuranceNumber').touched" class="errorMessage playerPersonalDataValue">
+                      <div *ngIf="playerForm.get('nationalInsuranceNumber').errors.required">National Insurance Number is required</div>
+                      <div *ngIf="playerForm.get('nationalInsuranceNumber').errors.minlength">National Insurance Number must be at least 4 characters long</div>
+                      <div *ngIf="playerForm.get('nationalInsuranceNumber').errors.maxlength">Max Length should be 40 characters Only</div>
+                      <div *ngIf="playerForm.get('nationalInsuranceNumber').errors.pattern">Only alphabets are allowed</div>
+                    </div>
+                </div>
+
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">Registration ID</div>
+                      <div class="playerPersonalDataValue"><input type="text" class="customInputStyle" formControlName="registrationID" [ngClass]="{'errorBorder': playerForm.get('registrationID').touched && playerForm.get('registrationID').errors}"/></div>
+                      <div *ngIf="playerForm.get('registrationID').invalid && playerForm.get('registrationID').touched" class="errorMessage playerPersonalDataValue">
+                        <div *ngIf="playerForm.get('registrationID').errors.required">Registration ID is required</div>
+                        <div *ngIf="playerForm.get('registrationID').errors.minlength">Registration ID must be at least 4 characters long</div>
+                        <div *ngIf="playerForm.get('registrationID').errors.maxlength">Max Length should be 40 characters Only</div>
+                        <div *ngIf="playerForm.get('registrationID').errors.pattern">Only alphabets are allowed</div>
+                      </div>
+                </div>
+
+
+
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">Status</div>
+                      <div class="playerPersonalDataValue">
+                        <select class="customInputStyle" formControlName="status" [ngClass]="{'errorBorder':playerForm.get('status').touched &&  playerForm.get('status').value==-1}">
+                          <option selected value="-1">Select a Value</option>
+                          <option *ngFor="let s of metadata_status_Input_Meta">{{s}}</option>
+                        </select>
+                      </div>
+                        <div *ngIf="playerForm.get('status').value==-1 && playerForm.get('status').touched" class="errorMessage playerPersonalDataValue">
+                          <div *ngIf="playerForm.get('status').value==-1">Status is required</div>
+                        </div>
+                      
+                </div>                
+          
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">Registration Type</div>
+                      <div class="playerPersonalDataValue">
+                        <select class="customInputStyle" formControlName="registrationType" [ngClass]="{'errorBorder': playerForm.get('registrationType').touched && playerForm.get('registrationType').value==-1}">
+                          <option selected value="-1">Select a Value</option>
+                          <option *ngFor="let s of metadata_registration_type_Input_Meta">{{s}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="playerForm.get('registrationType').value==-1 && playerForm.get('registrationType').touched" class="errorMessage playerPersonalDataValue">
+                        <div *ngIf="playerForm.get('registrationType').value==-1">Registration Type is required</div>
+                      </div>
+                </div>
+
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">Registering Club</div>
+                      <div class="playerPersonalDataValue">
+                        <select class="customInputStyle" formControlName="registeringClub" [ngClass]="{'errorBorder':playerForm.get('registeringClub').touched &&  playerForm.get('registeringClub').value==-1}">
+                        <option selected value="-1">Select a Value</option>
+                          <option *ngFor="let s of metadata_registering_club_Input_Meta">{{s}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="playerForm.get('registeringClub').value==-1 && playerForm.get('registeringClub').touched" class="errorMessage playerPersonalDataValue">
+                        <div *ngIf="playerForm.get('registeringClub').value==-1">Registering Club is required</div>
+                      </div>
+                </div>
+
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">Player</div>
+                      <div class="playerPersonalDataValue">
+                        <select class="customInputStyle" formControlName="player" [ngClass]="{'errorBorder': playerForm.get('player').touched && playerForm.get('player').value==-1}">
+                          <option selected value="-1">Select a Value</option>  
+                          <option *ngFor="let s of metadata_section_status_Input_Meta">{{s}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="playerForm.get('player').value==-1 && playerForm.get('player').touched" class="errorMessage playerPersonalDataValue">
+                        <div *ngIf="playerForm.get('player').value==-1">Player is required</div>
+                      </div>
+                </div>
+
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">Registration</div>
+                      <div class="playerPersonalDataValue">
+                        <select class="customInputStyle" formControlName="registration" [ngClass]="{'errorBorder':playerForm.get('registration').touched &&  playerForm.get('registration').value==-1}">
+                          <option selected value="-1">Select a Value</option>
+                          <option *ngFor="let s of metadata_section_status_Input_Meta">{{s}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="playerForm.get('registration').value==-1 && playerForm.get('registration').touched" class="errorMessage playerPersonalDataValue">
+                        <div *ngIf="playerForm.get('registration').value==-1">Registration is required</div>
+                      </div>
+                </div>
+
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">Transfer</div>
+                      <div class="playerPersonalDataValue">
+                        <select class="customInputStyle" formControlName="transfer" [ngClass]="{'errorBorder':playerForm.get('transfer').touched &&  playerForm.get('transfer').value==-1}">
+                          <option selected value="-1">Select a Value</option>
+                          <option *ngFor="let s of metadata_section_status_Input_Meta">{{s}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="playerForm.get('transfer').value==-1 && playerForm.get('transfer').touched" class="errorMessage playerPersonalDataValue">
+                        <div *ngIf="playerForm.get('transfer').value==-1">Transfer is required</div>
+                      </div>
+                </div>
+
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">Intermediaries</div>
+                      <div class="playerPersonalDataValue">
+                        <select class="customInputStyle" formControlName="intermediaries" [ngClass]="{'errorBorder': playerForm.get('intermediaries').touched && playerForm.get('intermediaries').value==-1}">
+                          <option selected value="-1">Select a Value</option>
+                          <option *ngFor="let s of metadata_section_status_Input_Meta">{{s}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="playerForm.get('intermediaries').value==-1 && playerForm.get('intermediaries').touched" class="errorMessage playerPersonalDataValue">
+                        <div *ngIf="playerForm.get('intermediaries').value==-1">Intermediaries is required</div>
+                      </div>
+                </div>
+
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">ITC</div>
+                      <div class="playerPersonalDataValue">
+                        <select class="customInputStyle" formControlName="ITC" [ngClass]="{'errorBorder': playerForm.get('ITC').touched && playerForm.get('ITC').value==-1}">
+                          <option selected value="-1">Select a Value</option>
+                          <option *ngFor="let s of metadata_section_status_Input_Meta">{{s}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="playerForm.get('ITC').value==-1 && playerForm.get('ITC').touched" class="errorMessage playerPersonalDataValue">
+                        <div *ngIf="playerForm.get('ITC').value==-1">ITC is required</div>
+                      </div>
+                </div>
+
+                <div class="playerData displayStyleFlex">
+                    <div class="playerPersonalDataKey">GBE</div>
+                      <div class="playerPersonalDataValue">
+                        <select class="customInputStyle" formControlName="GBE" [ngClass]="{'errorBorder': playerForm.get('GBE').touched && playerForm.get('GBE').value==-1}">
+                          <option selected value="-1">Select a Value</option>
+                          <option *ngFor="let s of metadata_section_status_Input_Meta">{{s}}</option>
+                        </select>
+                      </div>
+                      <div *ngIf="playerForm.get('GBE').value==-1 && playerForm.get('GBE').touched" class="errorMessage playerPersonalDataValue">
+                        <div *ngIf="playerForm.get('GBE').value==-1">GBE is required</div>
+                      </div>
+                </div>
+                
+        </div>
+        <div class="displayStyleFlex">
+          <div class="approveButton"  (click)="addPlayer()" [ngClass]="{pagDisabled:playerForm.status!='VALID' }">Add Player</div>
+          <div class="rejectButton" (click)="cancelAddPlayer()">Cancel</div>
+        </div>
+      </div>
+
+      
+    </div>
+  
+  </div>
+
+  

@@ -1,0 +1,42 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Submissions App</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
+    @Styles.Render("~/Content/css")
+    
+    <link rel="stylesheet" href="../../dist/submissions-app/styles.e7fa955690722cc27000.css">
+</head>
+<body>
+    <div class="navBarTop displayStyleFlexTop">
+        <div class="navTitleContainerTop displayStyleFlexTop">
+            <div id="navLogoTop"></div>
+            <div class="navTitleTop">
+                Registrations
+            </div>
+        </div>
+        <div class="navCrossTop"></div>
+        <div class="navMenuContainerTop">
+            <div class="submissionsMenuContainerTop displayStyleFlexTop">
+                <div id="hamburgerIconTop"></div>
+                <div class="submissionsMenuTextTop">Submissions</div>
+            </div>
+            <div class="profileContainerTop displayStyleFlexTop">
+                <div id="navProfileLogoTop"></div>
+                <div class="clubNameTop">The FA</div>
+                <span class="verticalLineTop">|</span>
+                <div class="userNameTop" id="userName">@User.Identity.Name</div>
+                <div class="navDropdownArrowTop"></div>
+            </div>
+
+        </div>
+    </div>
+    
+        @RenderBody()
+
+</body>
+</html>

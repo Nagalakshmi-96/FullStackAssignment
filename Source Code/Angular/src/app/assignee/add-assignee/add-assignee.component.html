@@ -1,0 +1,38 @@
+
+<div [hidden]="showCancelAssignee" class="addAssigneeButton dataCursor" (click)="addAssigneeFn($event)" >
+  <div class="addAssignee">
+    <div class="plusSymbol">+</div>
+  </div>
+</div>
+
+<div [hidden]="!showCancelAssignee" class="addAssigneeButton dataCursor" (click)="addAssigneeFn($event)" >
+  <div class="addAssignee" [ngStyle]="{'background-color':player.color,'border':player.color}">
+    <div class="plusSymbolAssigned">{{player.assigneeShort}}</div>
+  </div>
+</div>
+
+
+
+
+<div *ngIf="showAssigneeFlag" class="assigneePopup">
+  <div class="assigneePopupContents">
+    <div class="assigneePopupHeading">ASSIGNEE</div>
+    <div class="closeButton" (click)="closePopup()">X</div>
+    <div class="addAssigneeContainer displayStyleFlex">
+      <div>
+        <div class="cancelAssignee dataCursor" (click)="cancelAssignee()" *ngIf="showCancelAssignee">X</div>
+        <input list="assignees" class="assigneeInput" placeholder="Search for Assignees" [(ngModel)]="assignee" (change)="updateAssignee(assignee)"/>
+
+        <datalist id="assignees">
+          <option *ngFor="let a of assignees" [value]="a.assignee"></option>          
+      </datalist>
+      </div>
+      <div class="assigneePopupText">
+        OR
+      </div>
+      <div class="assignToMeButton dataCursor" (click)="updateAssignee('me')">
+        ASSIGN TO ME
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,294 @@
+.playerDetailsOuterContainer
+{
+  margin: 40px 0px 0px 0px;
+  padding-left: 50px;
+  font-family: avernirMedium;
+  text-transform: uppercase;
+}
+.statusTimelineContainer
+{
+  box-shadow:0px 0px 3px #555;
+  flex-basis: 300px;
+  height:600px;
+  border-radius: 4px;
+}
+.playerDetailsContainer
+{
+  margin: 0px 0px 0px 40px;
+}
+
+.playerHeading
+{
+  font-size: 20px;
+  font-family: avernirMedium;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+  padding: 0px 0px 10px 0px;
+  width: 860px;
+}
+.playerDetails
+{
+  width: 400px;
+}
+.playerSubmissions
+{
+  width: 506px;
+}
+.playerSubmissions
+{
+  background: #f2f2f2;
+}
+.playerProfile
+{
+  padding: 20px 0px 20px 0px;
+}
+.playerAvatar
+{
+  background-image: url('/assets/Images/player-avatar.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+}
+.firstLastName
+{
+  font-size: 24px;
+  font-family: avernirMedium;
+  text-transform: uppercase;
+  padding: 12px 0px 0px 10px;
+  width: 280px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.playerDetailsHeading,.submissionMetaDetaHeading
+{
+  padding: 0px 0px 10px 0px;
+  font-family: avernirBold;
+}
+.playerPersonalDataKey
+{
+  width: 175px;
+  color:#9a9c9e;
+  font-weight: bold;
+
+}
+.playerPersonalDataValue
+{
+  width: 190px;
+  font-size: 14px;
+  text-transform: none;
+  color:#595960;
+  font-weight: bold;
+
+}
+.playerPersonalDataKey
+{
+  font-size: 14px;
+}
+.playerData
+{
+  padding: 10px 0px;
+}
+.attachmentsHeading
+{
+  margin-top: 10px;
+  padding:10px 20px;
+  font-family: avernirBold;
+}
+.proofsListContainer
+{
+  padding:10px 20px;
+}
+.playerSubmissions
+{
+  font-size: 12px;
+}
+.proofName
+{
+  width:140px;
+  color:#9a9c9e;
+}
+.uploadStatusIcon
+{
+  background-image: url("/assets/Images/Green-tick.svg");
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 11px;
+  margin: 0px 5px 0px 0px;
+}
+.uploadStatus
+{
+  width: 200px
+}
+.upArrow
+{
+  background-image: url("/assets/Images/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg);
+  margin: -4px 0px 0px 4px;
+}
+.proofsList
+{
+  margin: 0px 0px 15px 0px;
+}
+.submissionMetaDetaHeading
+{
+  padding: 20px 0px 10px 0px;
+}
+.verticalSpacing
+{
+  padding: 10px;
+}
+.playerOverview
+{
+  height: 150px;
+  width:300px;
+  background-image: url("/assets/Images/Top of submission.png");
+  background-color: rgba(0,0,0,0.80);
+  font-family:avernirMedium;
+}
+.statusUserAvatar,.statusClubLogo
+{
+  background-image: url('/assets/Images/player-avatar.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  border-radius:20px;
+  margin: 10px 10px;
+  background-position: center;
+}
+.statusClubLogo
+{
+  width: 47px;
+  height: 40px;
+}
+
+.statusUserName
+{
+  color:#fff;
+  font-size:18px;
+  margin: 10px 0px 0px 0px;
+  width: 150px;
+}
+.statusUserDOB
+{
+  color: #fff;
+  margin: 13px 0px 0px 0px;
+  font-size: 12px;
+  font-family: avernirMedium;
+  font-weight:bold;
+}
+.statusScholarship
+{
+  color:#fff;
+  margin: 5px 0px 0px 60px;
+  font-size:11px;
+}
+.statusClubName
+{
+  color:#fff;
+  margin: 10px 0px 0px 0px;
+  font-size:18px;
+}
+.statusOfRegistration
+{
+  height: 20px;
+  width: 260px;
+  border-radius:2px;
+  color:#fff;
+  margin: auto;
+  font-size:14px;
+  padding-top: 2px;
+  font-family:avernirRegular;
+  font-weight:bold;
+  text-align: center;
+}
+.customInputStyle
+{
+  height: 25px;
+  border: 1px solid #595960;
+  font-family: avernirMedium;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  text-indent: 5px;
+}
+.errorMessage
+{
+  font-size: 13px;
+  color: red;
+  margin: 3px 0px 3px 0px;
+}
+.errorBorder
+{
+  border:1px solid red;
+}
+.timeline
+{
+  background-image: url(/assets/Images/timeline.JPG);
+    height: 436px;
+    width: 300px;
+    background-repeat: no-repeat;
+    margin: 20px 0px 0px 30px;
+}
+
+
+.addAssigneeModal
+{
+  position: fixed;
+  z-index: 100;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 1300px; 
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.addAssigneeContent
+{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 25px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close
+{
+  cursor: pointer;
+  float: right;
+  font-size: 35px;
+}
+.approveButton,.rejectButton
+{
+  font-family: avernirRegular;
+  font-weight: bold;
+  width: 86px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 2px;
+  color: #fff;
+  margin-left: 10px;
+  padding: 10px 10px;
+  cursor:pointer;
+  background-color: green;
+}
+.rejectButton
+{
+  background-color: red;
+}
+.deleteConfirmation
+{
+  padding: 25px 0px;
+}
+.alignCenter
+{
+  margin-left: 380px;
+}

@@ -1,0 +1,59 @@
+<div align="center" *ngIf="showLoader" class="noDetails">
+    <img src="assets/Images/loader.gif"/>
+  </div>
+<div *ngIf="!showLoader">
+<div class="playerTitleContainer displayStyleFlex">
+  <div class="backButton displayStyleFlex">
+    <div class="backArrowContainer"><div class="backArrow"></div></div> <div class="backButtonText"[routerLink]="['/submissionList']">Back to Submissions</div>
+  </div>
+  <div class="registrationTypeContainer">
+    <div class="registrationType">{{currentPlayer.registrationType}}</div>
+    <div class="registrationID">{{currentPlayer.registrationID}}</div>
+  </div>
+  <div class="assignedToContainer displayStyleFlex">
+    <div class="assignedToText">Assigned To :</div>
+    <div class="assignedTo">
+      <app-add-assignee [player]="currentPlayer"></app-add-assignee>
+    </div>
+  </div>
+
+</div>
+<div class="formsCommentsTabContainer">
+  <div class="formsCommentsTab displayStyleFlex">
+    <div class="formsTab">Forms</div>
+    <div class="commentsTab">Comments</div>
+  </div>
+</div>
+<div class="processButtonGroup displayStyleFlex">
+  <div class="displayStyleFlex" *ngIf="editContentFlag">
+    <div class="cancelButton" (click)="cancelContent()">Cancel</div>
+    <div class="updateButton" (click)="updateConfirmation()">Update</div>
+  </div>
+  <div class="editButton" *ngIf=!editContentFlag (click)="editContent()">Edit</div>
+
+  <div class="moreButtonContainer displayStyleFlex">
+    <div class="moreButtonText">More</div>
+    <div class="verticalLine"></div>
+    <div class="moreButtonArrow"></div>
+  </div>
+  <div class="rejectButton">Reject</div>
+  <div class="approveButton">Approve</div>
+  <div class="switchTabsContainer displayStyleFlex dataCursor">
+      <div class="leftTabIcon"></div>
+      <div class="rightTabIcon"></div>
+  </div>
+</div>
+<app-player-details-data [player]="currentPlayer" [editFlag]="editContentFlag"></app-player-details-data>
+
+<div class="addAssigneeModal" *ngIf="updatePlayerModal">
+
+  <div class="addAssigneeContent" align="center">
+    <span class="close" (click)="cancelUpdatePlayer()">&times;</span>
+    <div class="deleteConfirmation">Are you Sure want to Update?</div>
+    <div class="displayStyleFlex alignCenter">
+      <div class="modalapproveButton"  (click)="updateContent()">Update</div>
+      <div class="modalrejectButton" (click)="cancelUpdatePlayer()">Cancel</div>
+    </div>
+  </div>
+</div>
+</div>
